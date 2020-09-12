@@ -1,0 +1,33 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+    <display-name>WebFilter Web Application</display-name>
+
+    <filter>
+        <filter-name>auth-filter</filter-name>
+        <filter-class>src.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>order-filter</filter-name>
+        <filter-class>src.filter.OrderFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>auth-filter</filter-name>
+        <url-pattern>/filter</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>order-filter</filter-name>
+        <url-pattern>/filter</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>src.servlet.MyServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/filter</url-pattern>
+    </servlet-mapping>
+</web-app>
